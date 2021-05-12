@@ -1,48 +1,32 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Loader from 'react-loader-spinner';
+import { Switch, Route } from 'react-router-dom';
 
 import Container from './components/Container/Container';
-import ContactForm from './components/ContactForm';
-import ContactList from './components/ContactList';
-import Filter from './components/Filter';
-import { fetchContacts } from './redux/contact/contact-operations';
-import { getLoading, getError } from './redux/contact/contacts-selectors';
+
+import AppBar from './components/AppBar';
+
+import HomeView from './views/HomeView';
+import RegisterView from './views/RegisterView';
+import LoginView from './views/LoginView';
+import ContactsView from './views/ContactsView';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchContacts();
-  }
+ 
   render() {
     return (
       <Container>
-        <div>
-          <h1>Phonebook</h1>
+        <AppBar />
 
-          {this.props.isError && <h1>Sorry, please try later</h1>}
-        
-          <ContactForm />
-
-          <h2>Contacts</h2>
-
-          <Filter />
-          {this.props.isLoadingcontacts && (
-            <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
-          )}
-          <ContactList />
-        </div>
+        <Switch>
+          <Route exact path="/" component={HomeView} />
+          <Route path="/register" component={RegisterView} />
+          <Route path="/login" component={LoginView} />
+          <Route path="/contacts" component={ContactsView} />
+        </Switch>
       </Container>
     );
   }
 };
 
-const mapStateToProps = state => ({
-  isLoadingcontacts: getLoading(state),
-  isError: getError(state),
-});
+export default App;
 
-const mapDispatchToProps = dispatch => ({
-  fetchContacts: () => dispatch(fetchContacts()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);;
