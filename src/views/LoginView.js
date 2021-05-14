@@ -24,8 +24,6 @@ class LoginView extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.props.onLogin(this.state);
-
     this.setState({ name: '', email: '', password: '' });
   };
 
