@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getUserName } from '../../redux/auth/auth-selectors';
 import { logOut } from '../../redux/auth/auth-operations';
 import defaultAvatar from './avatar.png';
+import { Button } from '@material-ui/core';
 
 
 const styles = {
@@ -23,9 +24,14 @@ const UserMenu = ({ avatar, name, onLogout }) => (
   <div style={styles.container}>
     <img src={avatar} alt="" width="80" style={styles.avatar} />
     <span style={styles.name}>Welcome, {name}</span>
-    <button type="button" onClick={onLogout}>
+    <Button
+      variant="contained"
+      // color="primary"
+      type="button"
+      onClick={onLogout}
+    >
       Logout
-    </button>
+    </Button>
   </div>
 );
 

@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../redux/auth/auth-operations';
+import TextField from '@material-ui/core/TextField';
+import { Button } from '@material-ui/core';
 
 
 const styles = {
+  text: {
+    textAlign: 'center',
+  },
   form: {
     width: 320,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   label: {
     display: 'flex',
@@ -37,7 +44,7 @@ class LoginView extends Component {
 
     return (
       <div>
-        <h1>Страница логина</h1>
+        <h1 style={styles.text}>Страница логина</h1>
 
         <form
           onSubmit={this.handleSubmit}
@@ -45,8 +52,10 @@ class LoginView extends Component {
           autoComplete="off"
         >
           <label style={styles.label}>
-            Почта
-            <input
+            <TextField
+              id="outlined-basic"
+              label="email"
+              variant="outlined"
               type="email"
               name="email"
               value={email}
@@ -55,8 +64,10 @@ class LoginView extends Component {
           </label>
 
           <label style={styles.label}>
-            Пароль
-            <input
+            <TextField
+              id="outlined-basic"
+              label="password"
+              variant="outlined"
               type="password"
               name="password"
               value={password}
@@ -64,8 +75,11 @@ class LoginView extends Component {
             />
           </label>
 
-          <button type="submit">Войти</button>
+          <Button variant="contained" color="primary" type="submit">
+            Войти
+          </Button>
         </form>
+       
       </div>
     );
   }

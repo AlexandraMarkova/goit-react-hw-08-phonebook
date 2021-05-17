@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background: #aee976;
-  /* background: linear-gradient(#7ccfc4, #1f4041); */
+/* background: #400f54; */
+ background:radial-gradient(circle, rgba(160,244,241,1) 0%, rgba(79,148,149,1) 71%, rgba(37,43,45,1) 100%);
+ background-size: 100%;
 }

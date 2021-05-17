@@ -3,7 +3,23 @@ import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
 import * as operations from '../../redux/contact/contact-operations';
 import { getAllContacts } from '../../redux/contact/contacts-selectors';
+import TextField from '@material-ui/core/TextField';
+import { Button } from '@material-ui/core';
 
+
+
+const styles = {
+  form: {
+    width: 320,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  label: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginBottom: 15,
+  },
+};
 
 class ContactForm extends Component {
   state = {
@@ -42,10 +58,12 @@ class ContactForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor={this.nameInputId}>
-          Name
-          <input
+      <form style={styles.form} onSubmit={this.handleSubmit}>
+        <label style={styles.label} htmlFor={this.nameInputId}>
+          <TextField
+            id="outlined-basic"
+            label="name"
+            variant="outlined"
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -53,12 +71,14 @@ class ContactForm extends Component {
             required
             value={name}
             onChange={this.handleChange}
-            id={this.nameInputId}
+            // id={this.nameInputId}
           />
         </label>
-        <label htmlFor={this.numberInputId}>
-          Number
-          <input
+        <label style={styles.label} htmlFor={this.numberInputId}>
+          <TextField
+            id="outlined-basic"
+            label="number"
+            variant="outlined"
             type="tel"
             name="number"
             pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
@@ -66,10 +86,12 @@ class ContactForm extends Component {
             required
             value={number}
             onChange={this.handleChange}
-            id={this.numberInputId}
+            // id={this.numberInputId}
           />
         </label>
-        <button type="submit">Add contact</button>
+        <Button variant="contained" color="primary" type="submit">
+          Add contact
+        </Button>
       </form>
     );
   }

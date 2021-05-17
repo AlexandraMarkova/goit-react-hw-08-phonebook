@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://AlexandraMarkova.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
