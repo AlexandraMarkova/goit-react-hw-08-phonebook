@@ -5,7 +5,6 @@ import { logOut } from '../../redux/auth/auth-operations';
 import defaultAvatar from './avatar.png';
 import { Button } from '@material-ui/core';
 
-
 const styles = {
   container: {
     display: 'flex',
@@ -24,12 +23,7 @@ const UserMenu = ({ avatar, name, onLogout }) => (
   <div style={styles.container}>
     <img src={avatar} alt="" width="80" style={styles.avatar} />
     <span style={styles.name}>Welcome, {name}</span>
-    <Button
-      variant="contained"
-      // color="primary"
-      type="button"
-      onClick={onLogout}
-    >
+    <Button variant="contained" type="button" onClick={onLogout}>
       Logout
     </Button>
   </div>

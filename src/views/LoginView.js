@@ -4,7 +4,6 @@ import { login } from '../redux/auth/auth-operations';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 
-
 const styles = {
   text: {
     textAlign: 'center',
@@ -34,7 +33,7 @@ class LoginView extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-      this.props.onLogin(this.state);
+    this.props.onLogin(this.state);
 
     this.setState({ name: '', email: '', password: '' });
   };
@@ -79,12 +78,10 @@ class LoginView extends Component {
             Войти
           </Button>
         </form>
-       
       </div>
     );
   }
 }
-
 
 const mapDispatchToProps = {
   onLogin: login,

@@ -18,14 +18,3 @@ export const getVisibleContacts = createSelector(
     );
   },
 );
-
-// export const getVisibleContacts = state => {
-//   const filter = getFilter(state);
-//   const contacts = getAllContacts(state);
-
-//   const normalizeFilter = filter.toLowerCase();
-
-//   return contacts.filter(contact =>
-//     contact.name.toLowerCase().includes(normalizeFilter),
-//   );
-// };

@@ -13,7 +13,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
- import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -40,5 +40,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// export default { store, persistor };
